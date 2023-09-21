@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<?php session_start(); ?>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스즈메의 문단속 | GW시네마</title>
+	<link rel="stylesheet" href="../set/mvinfostyle.css">
+    <link rel="stylesheet" href="../../sm-reservation/css/header-footer.css">
+    <link rel="shortcut icon" href="https://nlms.gwnu.ac.kr/theme/image.php/coursemosv2/theme/1677574372/favicon">
+</head>
+<body>
+    <!--header-->
+    <header>
+		<div class="container">
+			<div class="row">
+				<div class="header clearfix">
+					<h1>
+                        <a href="../../index.html">
+                            <em><img src="../src/gwnu.png" alt="GWNU" style="margin-bottom: 10px;"></em>
+                            <strong><img src="../src/gwnu_long.png" alt="GWNU_Long"></strong>
+                        </a>
+					</h1>
+					<nav class="nav">
+						<ul class="clearfix">
+                            <?php if (isset($_SESSION['user_id'])) { ?>
+                                <li><a href="../../login/logout.php">로그아웃</a></li>
+                                <?php }else { ?>
+                                <li><a href="../../login/movie_login.php">로그인</a></li>
+                                <?php } ?>
+                                <?php if (isset($_SESSION['user_id'])) { ?>
+                                <li><a href="confirm2.html">예매내역 확인</a></li>
+                                <?php }else { ?>
+                                    <li><a href="../../login/movie_login.php">예매내역 확인</a></li>
+                                    <?php }
+                                    ?>
+                            <li><a href="../2nd-GH/manage_movie.php">영화 관리</a></li>
+                        </ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+    
+    <!--main-->
+    <div class="movie-container">
+        <div class="poster">
+            <img src="../src/poster/door.jpg" alt="영화 포스터">
+        </div>
+        <div class="movie-info">
+            <div class="title-container">
+                <h1 class="movie-title">스즈메의 문단속</h1>
+                <h2 class="movie-title-en">Suzume</h2>
+                <div class="title-separator"></div>
+            </div>
+            <div>상영시간: 122분</div>
+            <div>장르: 애니메이션</div>
+            <div>감독: 신카이 마코토 </div>
+            <div>출연진: 하라 나노카 ,  마츠무라 호쿠토 ,  후카츠 에리 ,  마츠모토 코시로 ,  소메타니 쇼타 ,  이토 사이리 ,  하나세 코토네 ,  하나자와 카나 ,  카미키 류노스케</div>
+            <div>연령제한: 12세 관람가</div>
+            <button class="booking-btn" onclick = "location.href = '../../sm-reservation/reservation.html'">예매하기</button><br><br>
+            <div>
+                <h3>영화 설명</h3><br>
+                <p>“이 근처에 폐허 없니? 문을 찾고 있어”<br>
+                    규슈의 한적한 마을에 살고 있는 소녀 ‘스즈메’는<br>
+                    문을 찾아 여행 중인 청년 ‘소타’를 만난다.<br><br>
+                     
+                    그의 뒤를 쫓아 산속 폐허에서 발견한 낡은 문.<br>
+                    ‘스즈메’가 무언가에 이끌리듯 문을 열자 마을에 재난의 위기가 닥쳐오고<br>
+                    가문 대대로 문 너머의 재난을 봉인하는 ‘소타’를 도와 간신히 문을 닫는다.<br><br>
+                     
+                    “닫아야만 하잖아요, 여기를!”<br>
+                    재난을 막았다는 안도감도 잠시,<br>
+                    수수께끼의 고양이 ‘다이진’이 나타나 ‘소타’를 의자로 바꿔 버리고<br>
+                    일본 각지의 폐허에 재난을 부르는 문이 열리기 시작하자<br>
+                    ‘스즈메’는 의자가 된 ‘소타’와 함께 재난을 막기 위한 여정에 나선다.<br><br>
+                     
+                    “꿈이 아니었어”<br>
+                    규슈, 시코쿠, 고베, 도쿄<br>
+                    재난을 막기 위해 일본 전역을 돌며 필사적으로 문을 닫아가던 중<br>
+                    어릴 적 고향에 닿은 ‘스즈메’는 잊고 있던 진실과 마주하게 되는데…</p>
+            </div>
+        </div>
+    </div>
+    
+    <!--footer-->
+    <footer id="footer">
+        <div id="footer_sns">
+            <div class="container">
+                <div class="footer_sns">
+                    <div class="tel">
+                        <a href="#" onclick="return false">TEL <em>1234-5678</em></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer_infor">
+            <div class="container">
+                <div class="row">
+                    <div class="footer_infor">
+                        <ul>
+                            <li><a href="#" onclick="return false">회사소개</a></li>
+                            <li><a href="#" onclick="return false">이용약관</a></li>
+                            <li><a href="#" onclick="return false">개인정보처리방침</a></li>
+                            <li><a href="#" onclick="return false">고객센터</a></li>
+                        </ul>
+                        <address>
+                            <p>주소 강원도 원주시 흥업면 남원로 150<br><span class="bar2">대표자명 소공3팀</span> | 개인정보보호 책임자 소공3팀<br><span class="bar2"></p>
+                            <p>Copyright 2023 by GWMU Software_Engineering Team3. All right reserved</p>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

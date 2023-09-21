@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+#container-main table {
+    width: 300px;
+    margin: 0 auto 30px;
+    text-align: center;
+    border: 1px solid #222;
+}
+
+#container-main th {
+    background-color: #aeaeae;
+}
+
+#container-main th,td {
+    border: 1px solid #222;
+    padding: 10px;
+}
+
+#container-main .menu {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#container-main .menu a {
+    padding: 10px;
+}

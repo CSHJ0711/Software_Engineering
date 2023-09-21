@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container-main {position: relative; width: 1290px; margin: 20px auto 20px; background: #f1f1f1;}
+
+#container-main h1 {
+    background-color: #333;
+    color: #FFF;
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#container-main form {
+    width: 70%;
+    margin: 0 auto;
+}
+
+#container-main label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+#container-main input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #AAA;
+}
+
+#container-main input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#container-main p {
+    margin: 10px auto;
+    text-align: center;
+}
+
+#container-main p a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+#container-main p a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+#container-main .edit-btn, .delete-btn {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+#container-main .edit-btn {
+    background-color: #007BFF;
+}
+
+#container-main .delete-btn {
+    background-color: #DC3545;
+}
+
+#container-main .edit-btn:hover, .delete-btn:hover {
+    opacity: 0.7;
+}

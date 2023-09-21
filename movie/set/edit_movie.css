@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container-modify {position: relative; width: 1290px; margin: 20px auto 20px;}
+
+#container-modify h1 {
+    background-color: #333;
+    color: #FFF;
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#container-modify form {
+    background: #f1f1f1;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+#container-modify label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#container-modify input[type="text"], #container-modify textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#container-modify input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    color: #fff;
+    background: #333;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#container-modify input[type="submit"]:hover {
+    background: #444;
+}
+
+#container-modify a {
+    color: #333;
+    text-decoration: none;
+}
+
+#container-modify a:hover {
+    color: #666;
+}

@@ -1,0 +1,160 @@
+<!doctype html>
+<?php session_start(); ?>
+<html>
+<head>
+	<!--<link rel="stylesheet" href="css.css">-->
+	<link rel="stylesheet" href="movie/set/reset.css">
+	<link rel="stylesheet" href="movie/set/style.css">
+	<link rel="stylesheet" href="movie/set/swiper.css">
+	<meta charset="UTF-8">
+	<title>GW시네마</title>
+	<link rel="shortcut icon" href="https://nlms.gwnu.ac.kr/theme/image.php/coursemosv2/theme/1677574372/favicon">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="header clearfix">
+					<h1>
+					<a href="#">
+                            <em><img src="movie/src/gwnu.png" alt="GWNU"></em>
+                            <strong><img src="movie/src/gwnu_long.png" alt="GWNU_Long"></strong>
+						</a>
+					</h1>
+					<nav class="nav">
+						<ul class="clearfix">
+                            <?php if (isset($_SESSION['user_id'])) { ?>
+                                <li><a href="login/logout.php">로그아웃</a></li>
+                                <?php }else { ?>
+                                <li><a href="login/movie_login.php">로그인</a></li>
+                                <?php } ?>
+                                <?php if (isset($_SESSION['user_id'])) { ?>
+                                    <li><a href="./login/mypage.php">마이페이지</a></li>
+                                <?php }else { ?>
+                                    <li><a href="login/movie_login.php">마이페이지</a></li>
+                                <?php } ?>
+                                <?php if (isset($_SESSION['user_id'])) { ?>
+                                    <li><a href="./sm-reservation/confirm_res.php">예매내역 확인</a></li>
+                                <?php }else { ?>
+                                    <li><a href="./login/movie_login.php">예매내역 확인</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['user_id'] == 'admin') { ?>
+                                <li><a href="./movie/2nd-GH/manage_movie.php">영화 관리</a></li>
+                                <?php } ?>
+                        </ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	    <section id="banner">
+        <div class="banner_menu">
+            <h2 class="ir_so">배너 영역</h2>
+            <div class="container">
+                <div class="row">
+                    <div class="bm_right">
+                        <ul>
+                            <li class="line"><a href="#">고객센터</a></li>
+                            <li class="line"><a href="#">멤버쉽</a></li>
+                        </ul>
+                        <ul>
+                            <li class="white"><a href="./movie/2nd-GH/list.php">영화정보</a></li>
+                            <?php if (isset($_SESSION['user_id'])) { ?>
+                                <li class="blue"><a href="./sm-reservation/reservation.html">예매하기</a></li>
+                            <?php }else { ?>
+                                <li class="blue"><a href="login/movie_login.php">예매하기</a></li>
+                            <?php }
+                            ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider">
+           <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide ss1">
+                        <div class="container">
+                            <div class="row">
+                                <h3>가디언즈 오브 갤럭시: Volume 3</h3>
+                                <p>예매율 1위 </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ss2">
+                        <div class="container">
+                            <div class="row">
+                                <h3>스즈메의 문단속</h3>
+                                <p>누적 관객수 500만명 돌파 </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide ss3">
+                        <div class="container">
+                            <div class="row">
+                                <h3>슈퍼 마리오 브라더스</h3>
+                                <p>전 세계를 열광시킬 올 타임 슈퍼 어드벤처의 등장! </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+    <!-- //banner -->
+	    <!-- //help -->
+
+    <!--footer-->
+    <footer id="footer">
+        <div id="footer_sns">
+            <div class="container">
+                <div class="footer_sns">
+                    <div class="tel">
+                        <a href="#" onclick="return false">TEL <em>1234-5678</em></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer_infor">
+            <div class="container">
+                <div class="row">
+                    <div class="footer_infor">
+                        <ul>
+                            <li><a href="#" onclick="return false">회사소개</a></li>
+                            <li><a href="#" onclick="return false">이용약관</a></li>
+                            <li><a href="#" onclick="return false">개인정보처리방침</a></li>
+                            <li><a href="#" onclick="return false">고객센터</a></li>
+                        </ul>
+                        <address>
+                            <p>주소 강원도 원주시 흥업면 남원로 150<br><span class="bar2">대표자명 소공3팀</span> | 개인정보보호 책임자 소공3팀<br><span class="bar2"></p>
+                            <p>Copyright 2023 by GWMU Software_Engineering Team3. All right reserved</p>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+	<script src="movie/set/swiper.min.js"></script>
+	<script>
+		//배너 이미지 슬라이드
+        var swiper = new Swiper('.swiper-container',{
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 5000,
+            },
+        });
+	</script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-family: '돋움';
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+i.age12 {
+    background-image: url('../images/image_12.png');
+    background-size: cover;
+}
+
+i.age15 {
+    background-image: url('../images/image_15.png');
+    background-size: cover;
+}
+
+i.age18 {
+    background-image: url('../images/image_18.png');
+    background-size: cover;
+}
+
+i.ageALL {
+    background-image: url('../images/image_all.png');
+    background-size: cover;
+}
+
+#buttonContainer {
+    text-align: center;
+    height: 60px;
+}
+
+#buttonContainer #seatSelectButton {
+    color: black;
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: bolder;
+    text-decoration: none;
+    border: 5px double #d4d3c9;
+    border-radius: 10px;
+    background-color: #f2f0e5;
+
+    transition-property: color, font-size;
+    transition-duration: 0.3s;
+}
+
+#buttonContainer #seatSelectButton:hover {
+    color: red;
+    font-size: 20px;
+}
+
+#container-res {
+    position: relative;
+    width: 1008px;
+    height: 600px;
+    margin: 50px auto 30px;
+    background-color: #d4d3c9;
+}
+
+#container-res .section {
+    position: relative;
+    float: left;
+    margin-left: 2px;
+    background-color: #f2f0e5;
+}
+
+#container-res .section .col-head {
+    text-align: center;
+    background-color: #222222;
+    color: white;
+    line-height: 40px;
+}
+
+#container-res .section .col-body {
+    height: max-content;
+}
+
+/* --css for .section_movie-- */
+
+#container-res .section_movie {
+    width: 300px;
+}
+
+#container-res .section_movie .col-body .movie-select {
+    margin: 10px 20px;
+}
+
+#container-res .section_movie .col-body .movie-select ul li {
+    width: 250px;
+    height: 35px;
+    line-height: 35px;
+    position: relative;
+}
+
+#container-res .section_movie .col-body .movie-select ul li a {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 35px;
+    margin: 1px;
+    text-decoration: none;
+}
+
+#container-res .section_movie .col-body .movie-select ul li a span.text {
+    color: #000;
+    font-weight: bold;
+}
+
+#container-res .section_movie .col-body .movie-select .movie-list .Icon {
+    display: inline-flex;
+    position: relative;
+    font-size: 0;
+    margin: 0px 3px 0px 6px;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+}
+
+/* --css for .section_date-- */
+
+#container-res .section_date {
+    width: 200px;
+}
+
+#container-res .section_date .col-body #dateList {
+    max-height: 550px;
+    overflow-y: scroll;
+}
+
+#container-res .section_date .col-body #dateList #year {
+    display: block;
+    margin-top: 12px;
+    text-align: center;
+    color: #666;
+    font-size: 11px;
+    font-family: Verdana;
+    font-weight: bold;
+    line-height: 11px;
+}
+
+#container-res .section_date .col-body #dateList #month {
+    display: block;
+    margin-top: 3px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #666;
+    font-size: 30px;
+    font-family: Verdana;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+#container-res .section_date .col-body #dateList li.day {
+    width: 60px;
+    height: 35px;
+    line-height: 35px;
+    margin-left: 60px;
+    margin-bottom: 1px;
+}
+
+#container-res .section_date .col-body #dateList li.day a {
+    display: block;
+    text-decoration: none;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#container-res .section_date .col-body #dateList li.day a span.dayweek {
+    color: #333;
+    font-size: 12px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+#container-res .section_date .col-body #dateList li.day a span.day{
+    float: right;
+    color: #333;
+    font-family: Verdana;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#container-res .section_date .col-body #dateList li.day.day-sat a span.dayweek {
+    color: #31597e;
+}
+
+#container-res .section_date .col-body #dateList li.day.day-sat a span.day {
+    color: #31597e;
+}
+
+#container-res .section_date .col-body #dateList li.day.day-sun a span.dayweek {
+    color: #ad2727;
+}
+
+#container-res .section_date .col-body #dateList li.day.day-sun a span.day {
+    color: #ad2727;
+}
+
+/* --css for .section_time-- */
+
+#container-res .section_time {
+    width: 500px;
+}
+
+#container-res .section_time .col-body  {
+    padding: 30px;
+}
+
+#container-res .section_time .col-body #timeList p {
+    margin-left: 60px;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+#container-res .section_time .col-body #timeList li {
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    padding-bottom: 9px;
+    margin-right: 20px;
+}
+
+#container-res .section_time .col-body #timeList li a {
+    display: block;
+    text-decoration: none;
+}
+
+#container-res .section_time .col-body #timeList li a span {
+    display: block;
+    width: 49px;
+    height: 23px;
+    line-height: 23px;
+    border: 1px solid #d6d3ce;
+    background-image: none;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Verdana;
+}
+
+#container-res .section_time .col-body #timeList li a span:active {
+    color: black;
+}

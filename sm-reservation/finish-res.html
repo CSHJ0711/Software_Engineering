@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<?php session_start(); ?>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://nlms.gwnu.ac.kr/theme/image.php/coursemosv2/theme/1677574372/favicon">
+    <!--<link rel="stylesheet" href="./css/payment-sm.css">-->
+    <link rel="stylesheet" href="./css/header-footer.css">
+    <link rel="stylesheet" href="./css/finish-res.css">
+    <title>예약정보 확인 | GW시네마</title>
+</head>
+<body>
+    <!--header-->
+    <header>
+		<div class="container">
+			<div class="row">
+				<div class="header clearfix">
+					<h1>
+                        <a href="../index.html">
+                            <em><img src="../movie/src/gwnu.png" alt="GWNU"></em>
+                            <strong><img src="../movie/src/gwnu_long.png" alt="GWNU_Long"></strong>
+                        </a>
+					</h1>
+					<nav class="nav">
+						<ul class="clearfix">
+                            <?php if (isset($_SESSION['user_id'])) { ?>
+                                <li><a href="../login/logout.php">로그아웃</a></li>
+                                <?php }else { ?>
+                                <li><a href="../login/movie_login.php">로그인</a></li>
+                                <?php } ?>
+                                <?php if (isset($_SESSION['user_id'])) { ?>
+                                    <li><a href="../login/mypage.php">마이페이지</a></li>
+                                <?php }else { ?>
+                                    <li><a href="../login/movie_login.php">마이페이지</a></li>
+                                <?php } ?>
+                                <?php if (isset($_SESSION['user_id'])) { ?>
+                                    <li><a href="./confirm_res.php">예매내역 확인</a></li>
+                                <?php }else { ?>
+                                    <li><a href="../login/movie_login.php">예매내역 확인</a></li>
+                                    <?php }
+                                    ?>
+                                <?php if ($_SESSION['user_id'] == 'admin') { ?>
+                                <li><a href="../movie/2nd-GH/manage_movie.php">영화 관리</a></li>
+                                <?php } ?>
+                        </ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+
+    <!--main-->
+    <div id="container-fin">
+        <p>예매 완료</p>
+        <table>
+            <caption>예매 정보</caption>
+            <tr>
+                <td class="col1">영화 제목</td>
+                <td class="col2" id="title"></td>
+            </tr>
+            <tr>
+                <td class="col1">상영 날짜</td>
+                <td class="col2" id="date"></td>
+            </tr>
+            <tr>
+                <td class="col1">상영 시간</td>
+                <td class="col2" id="time"></td>
+            </tr>
+            <tr>
+                <td class="col1">선택 좌석</td>
+                <td class="col2" id="seat"></td>
+            </tr>
+        </table>
+        <table>
+            <caption>결제 정보</caption>
+            <tr>
+                <td class="col1">예약자명</td>
+                <?php echo '<td class="col2" id="username">'.$_SESSION['user_name'].'</td>'; ?>
+            </tr>
+            <tr>
+                <td class="col1">결제금액</td>
+                <td class="col2" id="cost"></td>
+            </tr>
+        </table>
+
+        <a class="button" href="../index.html">메인화면으로</a>
+    </div>
+
+    <!--footer-->
+    <footer id="footer">
+        <div id="footer_sns">
+            <div class="container">
+                <div class="footer_sns">
+                    <div class="tel">
+                        <a href="#" onclick="return false">TEL <em>1234-5678</em></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer_infor">
+            <div class="container">
+                <div class="row">
+                    <div class="footer_infor">
+                        <ul>
+                            <li><a href="#" onclick="return false">회사소개</a></li>
+                            <li><a href="#" onclick="return false">이용약관</a></li>
+                            <li><a href="#" onclick="return false">개인정보처리방침</a></li>
+                            <li><a href="#" onclick="return false">고객센터</a></li>
+                        </ul>
+                        <address>
+                            <p>주소 강원도 원주시 흥업면 남원로 150<br>대표자명 소공3팀 | 개인정보보호 책임자 소공3팀<br></p>
+                            <p>Copyright 2023 by GWMU Software_Engineering Team3. All right reserved</p>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--script-->
+    <script type="text/javascript" src="./js/finish-res.js"></script>
+</body>
+</html>

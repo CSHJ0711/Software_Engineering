@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-family: '돋움';
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.buttonContainer {
+    text-align: center;
+    height: 80px;
+}
+
+.buttonContainer .button {
+    width: 90px;
+    display: inline-block;
+    margin: 10px;
+    color: black;
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: bolder;
+    text-decoration: none;
+    border: 5px double #d4d3c9;
+    border-radius: 10px;
+    background-color: #ffffff;
+
+    transition-property: color, font-size;
+    transition-duration: 0.3s;
+}
+
+.buttonContainer .button:hover {
+    color: red;
+    font-size: 20px;
+}
+
+#container-pay {
+    position: relative;
+    width: 1008px;
+    height: 600px;
+    margin: 50px auto 30px;
+    background-color: #d4d3c9;
+}
+
+#container-pay .section {
+    position: relative;
+    float: left;
+    margin-left: 2px;
+    background-color: #f2f0e5;
+}
+
+#container-pay .section .col-head {
+    text-align: center;
+    background-color: #222222;
+    color: white;
+    line-height: 40px;
+}
+
+#container-pay .section .col-body {
+    height: max-content;
+}
+
+#container-pay .section_selData {
+    width: 401px;
+}
+
+#container-pay .section_selData .selData_table {
+    width: 300px;
+}
+
+#container-pay .section_payment {
+    width: 601px;
+}
+
+#container-pay .section_payment .payment_table {
+    width: 500px;
+}
+
+
+/* --- css for <table> --- */
+#container-pay .section table {
+    margin: 20px auto;
+    border-top: 1px solid #aeaeae;
+    text-align: center;
+}
+
+#container-pay .section .table td {
+    border-left: 1px solid #aeaeae;
+    border-bottom: 1px solid #aeaeae;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: initial;
+}
+
+#container-pay .section .table td:first-child {
+    border-left: none;
+}
+
+#container-pay .section .table td.col1 {
+    background-color: #f4f4f4;
+    width: 30%;
+}
+
+#container-pay .section .table td.col2 {
+    background-color: #ffffff;
+}

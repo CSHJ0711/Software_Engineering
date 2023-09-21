@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<?php session_start(); ?>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://nlms.gwnu.ac.kr/theme/image.php/coursemosv2/theme/1677574372/favicon">
+    <link rel="stylesheet" href="./css/payment-sm.css">
+    <link rel="stylesheet" href="./css/header-footer.css">
+    <title>결제 | GW시네마</title>
+</head>
+<body>
+    <!--header-->
+    <header>
+		<div class="container">
+			<div class="row">
+				<div class="header clearfix">
+					<h1>
+                        <a href="../index.html">
+                            <em><img src="../movie/src/gwnu.png" alt="GWNU"></em>
+                            <strong><img src="../movie/src/gwnu_long.png" alt="GWNU_Long"></strong>
+                        </a>
+					</h1>
+					<nav class="nav">
+						<ul class="clearfix">
+                            <?php if (isset($_SESSION['user_id'])) { ?>
+                                <li><a href="../login/logout.php">로그아웃</a></li>
+                                <?php }else { ?>
+                                <li><a href="../login/movie_login.php">로그인</a></li>
+                                <?php } ?>
+                                <?php if (isset($_SESSION['user_id'])) { ?>
+                                    <li><a href="../login/mypage.php">마이페이지</a></li>
+                                <?php }else { ?>
+                                    <li><a href="../login/movie_login.php">마이페이지</a></li>
+                                <?php } ?>
+                                <?php if (isset($_SESSION['user_id'])) { ?>
+                                    <li><a href="./confirm_res.php">예매내역 확인</a></li>
+                                <?php }else { ?>
+                                    <li><a href="../login/movie_login.php">예매내역 확인</a></li>
+                                    <?php }
+                                    ?>
+                                <?php if ($_SESSION['user_id'] == 'admin') { ?>
+                                <li><a href="../movie/2nd-GH/manage_movie.php">영화 관리</a></li>
+                                <?php } ?>
+                        </ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+
+    <!--main-->
+    <div id="container-pay">
+        <div class="section section_selData">
+            <div class="col-head">
+                <h3>선택 정보</h3>
+            </div>
+            <div class="col-body">
+                <table class="table selData_table">
+                    <tr>
+                        <td colspan="2"><img id="movieImg" width="220px"></td>
+                    </tr>
+                    <tr>
+                        <td class="col1">영화 제목</td>
+                        <td class="col2" id="title"></td>
+                    </tr>
+                    <tr>
+                        <td class="col1">상영 날짜</td>
+                        <td class="col2" id="date"></td>
+                    </tr>
+                    <tr>
+                        <td class="col1">상영 시간</td>
+                        <td class="col2" id="time"></td>
+                    </tr>
+                    <tr>
+                        <td class="col1">선택 좌석</td>
+                        <td class="col2" id="seat"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="section section_payment">
+            <div class="col-head">
+                <h3>결제</h3>
+            </div>
+            <div class="col-body">
+                <table class="table payment_table">
+                    <tr>
+                        <td class="col1">예약자명</td>
+                        <?php echo '<td class="col2" id="username">'.$_SESSION['user_name'].'</td>'; ?>
+                    </tr>
+                    <tr>
+                        <td class="col1">결제금액</td>
+                        <td class="col2" id="cost"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="buttonContainer">
+                <a class="button paymentButton" href="#" onclick="check()">결제하기</a> 
+                <a class="button cancelButton" href="#" onclick="cancel_check()">취소하기</a> 
+            </div>
+        </div>
+    </div>
+
+    <!--footer-->
+    <footer id="footer">
+        <div id="footer_sns">
+            <div class="container">
+                <div class="footer_sns">
+                    <div class="tel">
+                        <a href="#" onclick="return false">TEL <em>1234-5678</em></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer_infor">
+            <div class="container">
+                <div class="row">
+                    <div class="footer_infor">
+                        <ul>
+                            <li><a href="#" onclick="return false">회사소개</a></li>
+                            <li><a href="#" onclick="return false">이용약관</a></li>
+                            <li><a href="#" onclick="return false">개인정보처리방침</a></li>
+                            <li><a href="#" onclick="return false">고객센터</a></li>
+                        </ul>
+                        <address>
+                            <p>주소 강원도 원주시 흥업면 남원로 150<br>대표자명 소공3팀 | 개인정보보호 책임자 소공3팀<br></p>
+                            <p>Copyright 2023 by GWMU Software_Engineering Team3. All right reserved</p>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--script-->
+    <script type="text/javascript" src="./js/payment-sm.js"></script>
+    <script>
+        function check() {
+            if (confirm("결제를 진행하시겠습니까?")) {
+                location.href = "./finish-res.html?selMovie=" + encodeURIComponent(selMovie) + "&selMovieId=" + encodeURIComponent(selMovieId) + "&selDate=" + encodeURIComponent(selDate) + "&selTime=" + encodeURIComponent(selTime) + "&selSeat=" + encodeURIComponent(selSeat) + "&count=" + count.innerText + "&costs=" + costs;
+            }
+        }
+
+        function cancel_check() {
+            if (confirm("예매를 취소하시겠습니까?")) {
+                location.href = "./reservation.html";
+            }
+        }
+    </script>
+</body>
+</html>

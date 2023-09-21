@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+body {
+    font-family: 'Noto Sans KR', fantasy;
+    margin: 0;
+    padding: 0;
+}
+
+.movie-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.poster {
+    width: 30%;
+}
+
+.poster img {
+    width: 100%;
+    height: auto;
+}
+
+.movie-info {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-info > div {
+    margin-bottom: 10px;
+}
+.title-container {
+    width: 80%;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.movie-title {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.movie-title-en {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.title-separator {
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.booking-btn {
+    background-color: #146c94;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.booking-btn:hover {
+    background-color: #1c90c6;
+}

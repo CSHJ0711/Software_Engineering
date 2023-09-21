@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<?php session_start(); ?>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://nlms.gwnu.ac.kr/theme/image.php/coursemosv2/theme/1677574372/favicon">
+    <link rel="stylesheet" href="./css/reservation.css">
+    <link rel="stylesheet" href="./css/header-footer.css">
+    <title>예매 | GW시네마</title>
+</head>
+<body>
+    <!--header-->
+    <header>
+		<div class="container">
+			<div class="row">
+				<div class="header clearfix">
+					<h1>
+                        <a href="../index.html">
+                            <em><img src="../movie/src/gwnu.png" alt="GWNU"></em>
+                            <strong><img src="../movie/src/gwnu_long.png" alt="GWNU_Long"></strong>
+                        </a>
+					</h1>
+					<nav class="nav">
+						<ul class="clearfix">
+                            <?php if (isset($_SESSION['user_id'])) { ?>
+                                <li><a href="../login/logout.php">로그아웃</a></li>
+                                <?php }else { ?>
+                                <li><a href="../login/movie_login.php">로그인</a></li>
+                                <?php } ?>
+                                <?php if (isset($_SESSION['user_id'])) { ?>
+                                    <li><a href="../login/mypage.php">마이페이지</a></li>
+                                <?php }else { ?>
+                                    <li><a href="../login/movie_login.php">마이페이지</a></li>
+                                <?php } ?>
+                                <?php if (isset($_SESSION['user_id'])) { ?>
+                                <li><a href="./confirm_res.php">예매내역 확인</a></li>
+                                <?php }else { ?>
+                                <li><a href="../login/movie_login.php">예매내역 확인</a></li>
+                                <?php } ?>
+                                <?php if ($_SESSION['user_id'] == 'admin') { ?>
+                                <li><a href="../movie/2nd-GH/manage_movie.php">영화 관리</a></li>
+                                <?php } ?>
+                        </ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+
+    <!--main-->
+    <div id="container-res">
+        <div class="section section_movie">
+            <div class="col-head">
+                <h3>영화</h3>
+            </div>
+            <div class="col-body">
+                <div class="movie-select">
+                    <ul class="movie-list">
+                        <?php
+                            // DB 접속
+                            $link = new mysqli('localhost', 'semin1127', 'tpals1528!', 'semin1127');
+                            if (!$link) {
+                                die("MySQL 접속 실패". $link->connect_error);
+                            }
+
+                            // PHP 문자 인코딩 설정
+                            mysqli_set_charset($link, "utf8");
+
+                            // 영화정보 가져오기
+                            $result = $link->query("select * from movie_info");
+
+                            // 가져온 결과를 배열로 저장
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<li><a href='#' data-movieId='${row["movieId"]}' onclick='return false'>";
+                                    if ($row["age"] == "12") {
+                                        echo "<i class='Icon age12'>12</i>";
+                                    } else if ($row["age"] == "15") {
+                                        echo "<i class='Icon age15'>15</i>";
+                                    } else if ($row["age"] == "18") {
+                                        echo "<i class='Icon age18'>18</i>";
+                                    } else if ($row["age"] == "ALL") {
+                                        echo "<i class='Icon ageALL'>15</i>";
+                                    }
+                                    echo "<span class='text'>" . $row['title_ko'] . "</span>";
+                                    echo "</a></li>";
+                                }
+                            }
+
+                            // DB 접속 해지
+                            $link->close();
+                        ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="section section_date">
+            <div class="col-head">
+                <h3>날짜</h3>
+            </div>
+            <div class="col-body">
+                <ul id="dateList">
+                    <li class="month">
+                        <span id="year"></span>
+                        <span id="month"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="section section_time">
+            <div class="col-head">
+                <h3>시간</h3>
+            </div>
+            <div class="col-body">
+                <ul id="timeList"><!--timeList.js + getTime.php--></ul>
+            </div>
+        </div>
+    </div>
+    <div id="buttonContainer">
+        <a id="seatSelectButton" href='#' onclick="check()">좌석 선택</a>
+    </div>
+
+    <!--footer-->
+    <footer id="footer">
+        <div id="footer_sns">
+            <div class="container">
+                <div class="footer_sns">
+                    <div class="tel">
+                        <a href="#" onclick="return false">TEL <em>1234-5678</em></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer_infor">
+            <div class="container">
+                <div class="row">
+                    <div class="footer_infor">
+                        <ul>
+                            <li><a href="#" onclick="return false">회사소개</a></li>
+                            <li><a href="#" onclick="return false">이용약관</a></li>
+                            <li><a href="#" onclick="return false">개인정보처리방침</a></li>
+                            <li><a href="#" onclick="return false">고객센터</a></li>
+                        </ul>
+                        <address>
+                            <p>주소 강원도 원주시 흥업면 남원로 150<br>대표자명 소공3팀 | 개인정보보호 책임자 소공3팀<br></p>
+                            <p>Copyright 2023 by GWMU Software_Engineering Team3. All right reserved</p>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--javascript-->
+    <script type="text/javascript" src="./js/dateList.js"></script>
+    <script type="text/javascript" src="./js/movieList.js"></script>
+    <script type="text/javascript" src="./js/timeList.js"></script>
+    <script>
+        function check() {
+            var selMovie = document.querySelector('.movie-list li a.selected span.text');
+            var selDate = document.querySelector('#dateList li a.selected span.day');
+            var selTime = document.querySelector('#timeList li a.selected span');
+
+            if (!selMovie) {
+                alert("영화를 선택하세요.");
+            } else if (!selDate) {
+                alert("날짜를 선택하세요.");
+            } else if (!selTime) {
+                alert("시간을 선택하세요.");
+            } else {
+                if (confirm("선택하신 정보는 \n영화 : " + selMovie.innerText + "\n날짜 : " + today.getFullYear() + "-" + (today.getMonth()+1) + "-" + selDate.innerText + "\n시간 : " + selTime.innerText + "\n입니다. \n\n좌석 선택으로 넘어가시겠습니까?")) {
+                    location.href = './reservation-seatSelect.html?movie=' + encodeURIComponent(selMovie.innerText) + '&movieId=' + encodeURIComponent(movieId) + '&date=' + encodeURIComponent(selDate.innerText) + '&time=' + encodeURIComponent(selTime.innerText);
+                } else {
+                    return false;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
